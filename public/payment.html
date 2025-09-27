@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="payment">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="payment">
+  <h1>Payment Details</h1>
+
+  <form id="paymentForm">
+    <label for="name">Full Name</label>
+    <input id="name" type="text" required />
+
+    <label for="cardNumber">Card Number</label>
+    <input id="cardNumber" type="text" pattern="\d{16}" maxlength="16" placeholder="1234 5678 9012 3456" required />
+
+    <label for="expiry">Expiry Date</label>
+    <input id="expiry" type="month" required />
+
+    <label for="cvv">CVV</label>
+    <input id="cvv" type="password" pattern="\d{3}" maxlength="3" required />
+
+    <button type="submit">Pay Now</button>
+  </form>
+
+  <button onclick="goBack()">Back to Cart</button>
+
+  <script>
+    const form = document.getElementById('paymentForm');
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      alert('Payment successful! Thank you for your purchase.');
+      localStorage.removeItem('cart');
+      window.location.href = 'index.html';
+    };
+  </script>
+</body>
+</html>
+
+
+
+
+
+

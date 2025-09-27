@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" class="home">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Electronic Shop - Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="home">
+
+  <div id="welcomeMessage">Welcome to my electronic shop</div>
+
+  <!-- Search Bar -->
+  <input
+    type="text"
+    id="searchBar"
+    placeholder="Search products like laptop, watch, phone..."
+    autocomplete="off"
+  />
+
+  <!-- Slider Container -->
+  <div class="slider-wrapper">
+    <button class="slider-btn" id="prevBtn">&#10094;</button>
+    <div class="slider"></div>
+    <button class="slider-btn" id="nextBtn">&#10095;</button>
+  </div>
+
+  <!-- Products Grid -->
+  <div class="products"></div>
+
+  <script src="script.js"></script>
+  <script>
+    // Insert slides into slider based on products array
+    const slider = document.querySelector(".slider");
+
+    products.forEach((product) => {
+      const slide = document.createElement("div");
+      slide.className = "slide";
+      slide.innerHTML = `
+        <img src="${product.img}" alt="${product.name}" />
+        <h3>${product.name}</h3>
+        <p>$${product.price}</p>
+      `;
+      slide.onclick = () => showProduct(product.name, product.price, product.desc, product.img);
+      slider.appendChild(slide);
+    });
+
+    // Initialize the page features
+    window.onload();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
